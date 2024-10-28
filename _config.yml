@@ -1,1 +1,5 @@
-theme: jekyll-theme-minimal
+theme: minima
+
+include:
+  - _pages
+
