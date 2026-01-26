@@ -2,6 +2,4 @@
 layout: home
 ---
 
-Hi — I’m Alex. I work on tracking + HEP software + HPC tooling.
-
-- See **[Talks](/talks/)** for slides.
+I keep track of my presentations at **[talks.md](/talks/)**.

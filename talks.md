@@ -5,7 +5,8 @@ permalink: /talks/
 ---
 
 ## 2026
-- **2026-01-23 — Muon Collider Tracking with LST** (work meeting) — [PDF](/assets/talks/2026-01-23-muon-collider-tracking.pdf)
+- 2026-01-14: Muon Collider tracker & LST. [Numbers from 1 neutrino gun event ](https://indico.cern.ch/event/1634788/)
+- 2026-01-07: Muon Collider tracker & LST. [Updates to detector geometry](https://indico.cern.ch/event/1628117/)
 
 ## 2025
-- **2025-11-04 — New Small Wheel Trigger** — [PDF](/assets/talks/2025-11-04-nsw-trigger.pdf)
+- 2025-12-17: Muon Collider tracker & LST. [Understanding the geometrical inefficiency](https://indico.cern.ch/event/1623586/)
