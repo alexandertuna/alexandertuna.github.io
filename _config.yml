@@ -1,5 +1,11 @@
+title: Alex Tuna
+description: Talks, notes, and projects
 theme: minima
 
-include:
-  - _pages
+# Optional, but commonly useful:
+markdown: kramdown
+
+header_pages:
+  - talks.md
+  - about.md
 
