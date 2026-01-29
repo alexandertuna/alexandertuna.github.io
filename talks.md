@@ -5,7 +5,8 @@ permalink: /talks/
 ---
 
 ## 2026
-- 2026-01-14: Muon Collider tracker & LST. [Numbers from 1 neutrino gun event ](https://indico.cern.ch/event/1634788/)
+- 2026-01-28: Muon Collider tracker & LST. [Numbers from relaxing the hit time window](https://indico.cern.ch/event/1643034/)
+- 2026-01-14: Muon Collider tracker & LST. [Numbers from 1 neutrino gun event](https://indico.cern.ch/event/1634788/)
 - 2026-01-07: Muon Collider tracker & LST. [Updates to detector geometry](https://indico.cern.ch/event/1628117/)
 
 ## 2025
