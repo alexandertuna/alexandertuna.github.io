@@ -5,6 +5,7 @@ permalink: /talks/
 ---
 
 ## 2026
+- 2026-03-11: Muon Collider tracker & LST. [Conference info and momentum estimation](https://indico.cern.ch/event/1662472/)
 - 2026-03-04: Muon Collider tracker & LST. [Features of line segments for signal and background](https://indico.cern.ch/event/1660168/)
 - 2026-02-25: Muon Collider tracker & LST. [Understanding hits per layer](https://indico.cern.ch/event/1656412/)
 - 2026-02-11: Muon Collider tracker & LST. [Following up two unexpected behaviors](https://indico.cern.ch/event/1650293/)
