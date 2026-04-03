@@ -5,6 +5,7 @@ permalink: /talks/
 ---
 
 ## 2026
+- 2026-04-02: MAIA Detector and 10 TeV Studies Meeting. [Discussing unphysical sim hits](https://indico.desy.de/event/53317/)
 - 2026-03-25: Muon Collider tracker & LST. [Unphysical sim hits and medium-term ideas](https://indico.cern.ch/event/1668008/)
 - 2026-03-11: Muon Collider tracker & LST. [Conference info and momentum estimation](https://indico.cern.ch/event/1662472/)
 - 2026-03-04: Muon Collider tracker & LST. [Features of line segments for signal and background](https://indico.cern.ch/event/1660168/)
