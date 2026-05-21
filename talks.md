@@ -5,6 +5,7 @@ permalink: /talks/
 ---
 
 ## 2026
+- 2026-05-20: Muon Collider tracker & LST. [Position resolution for our tracker hits](https://indico.cern.ch/event/1689298/)
 - 2026-05-13: Muon Collider tracker & LST. [A tracker with equally-spaced layers](https://indico.cern.ch/event/1686864/)
 - 2026-05-06: Muon Collider tracker & LST. [Multiple background events, and naming conventions](https://indico.cern.ch/event/1684185/)
 - 2026-04-29: Muon Collider tracker & LST. [Combining objects and how to name them](https://indico.cern.ch/event/1681295/)
