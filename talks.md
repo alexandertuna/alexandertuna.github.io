@@ -5,6 +5,8 @@ permalink: /talks/
 ---
 
 ## 2026
+- 2026-06-17: Muon Collider tracker & LST. [Efficiency of T4s, and the sz-plane](https://indico.cern.ch/event/1699934/)
+- 2026-06-03: Muon Collider tracker & LST. [Discussing schedule and priorities](https://indico.cern.ch/event/1694077/)
 - 2026-05-28: MAIA Detector and 10 TeV Studies Meeting. [More discussion of unphysical sim hits](https://indico.desy.de/event/53886/)
 - 2026-05-20: Muon Collider tracker & LST. [Position resolution for our tracker hits](https://indico.cern.ch/event/1689298/)
 - 2026-05-13: Muon Collider tracker & LST. [A tracker with equally-spaced layers](https://indico.cern.ch/event/1686864/)
