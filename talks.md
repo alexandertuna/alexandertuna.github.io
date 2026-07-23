@@ -5,6 +5,8 @@ permalink: /talks/
 ---
 
 ## 2026
+- 2026-07-22: Muon Collider tracker & LST. [ICHEP practice presentation, v1](https://indico.cern.ch/e/1710710)
+- 2026-07-15: Muon Collider tracker & LST. [ICHEP practice presentation, v0](https://indico.cern.ch/e/1710231)
 - 2026-07-01: Muon Collider tracker & LST. [Wishlist for the ICHEP presentation](https://indico.cern.ch/event/1704964/)
 - 2026-06-22: IMCC and MuCol Annual Meeting. [All presentations](https://indico.cern.ch/event/1615465/timetable/#all.detailed)
 - 2026-06-17: Muon Collider tracker & LST. [Efficiency of T4s, and the sz-plane](https://indico.cern.ch/event/1699934/)
