@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>10,000 Hours of ML</title>
+  <script src="https://cdn.plot.ly/plotly-2.35.2.min.js"></script>
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 16px;
+      color: #222;
+      background: #fff;
+    }
+    h1 { margin-bottom: 0.2em; }
+    .subtitle { color: #666; margin-top: 0; }
+    #chart { width: 100%; height: 500px; }
+    #errors { color: #b00020; }
+  </style>
+</head>
+<body>
+  <h1>10,000 Hours of Machine Learning</h1>
+  <p class="subtitle">A daily log of ML</p>
+  <div id="chart"></div>
+  <div id="errors"></div>
+
+  <script>
+    // Matches lines like "2026-10-25 3h Trying a new loss function"
+    const LINE_RE = /^(\d{4}-\d{2}-\d{2})\s+(\d+(?:\.\d+)?)h\b\s*(.*)$/;
+
+    // Parse log text into {entries: [{date, hours, text}], errors: [string]}
+    function parseLog(text) {
+      const entries = [];
+      const errors = [];
+      text.split("\n").forEach((raw, i) => {
+        const line = raw.trim();
+        if (line === "" || line.startsWith("#")) return;
+        const m = line.match(LINE_RE);
+        if (!m) {
+          errors.push(`Line ${i + 1}: could not parse "${line}"`);
+          return;
+        }
+        entries.push({ date: m[1], hours: parseFloat(m[2]), text: m[3] });
+      });
+      return { entries, errors };
+    }
+
+    // Date helpers work on "YYYY-MM-DD" strings in UTC to avoid timezone surprises
+    function addDays(dateStr, n) {
+      const d = new Date(dateStr + "T00:00:00Z");
+      d.setUTCDate(d.getUTCDate() + n);
+      return d.toISOString().slice(0, 10);
+    }
+
+    function todayLocal() {
+      const d = new Date();
+      const pad = (x) => String(x).padStart(2, "0");
+      return `${d.getFullYear()}-${pad(d.getMonth() + 1)}-${pad(d.getDate())}`;
+    }
+
+    // Turn entries into one row per day (including days with 0 hours),
+    // from the first logged day through today (or the last logged day, if later).
+    function dailySeries(entries) {
+      const byDay = new Map();
+      for (const e of entries) {
+        if (!byDay.has(e.date)) byDay.set(e.date, { hours: 0, notes: [] });
+        const day = byDay.get(e.date);
+        day.hours += e.hours;
+        day.notes.push(`${e.hours}h ${e.text}`);
+      }
+      const dates = [...byDay.keys()].sort();
+      const first = dates[0];
+      const last = [dates[dates.length - 1], todayLocal()].sort()[1];
+
+      const days = [];
+      let cumulative = 0;
+      for (let d = first; d <= last; d = addDays(d, 1)) {
+        const day = byDay.get(d) || { hours: 0, notes: [] };
+        cumulative += day.hours;
+        days.push({ date: d, hours: day.hours, cumulative, notes: day.notes });
+      }
+      return days;
+    }
+
+    function drawChart(days) {
+      const dates = days.map((d) => d.date);
+      const daily = {
+        x: dates,
+        y: days.map((d) => d.hours),
+        customdata: days.map((d) => d.notes.join("<br>") || "—"),
+        type: "bar",
+        name: "Daily hours",
+        marker: { color: "#4c78a8" },
+        hovertemplate: "%{x}<br><b>%{y}h</b><br>%{customdata}<extra></extra>",
+      };
+      const cumulative = {
+        x: dates,
+        y: days.map((d) => d.cumulative),
+        type: "scatter",
+        mode: "lines",
+        name: "Cumulative hours",
+        yaxis: "y2",
+        line: { color: "#e45756", width: 2.5 },
+        hovertemplate: "%{x}<br><b>%{y}h total</b><extra></extra>",
+      };
+      const layout = {
+        margin: { t: 20, r: 60, b: 50, l: 60 },
+        xaxis: { type: "date" },
+        yaxis: { title: "Daily hours", rangemode: "tozero" },
+        yaxis2: {
+          title: "Cumulative hours",
+          overlaying: "y",
+          side: "right",
+          rangemode: "tozero",
+          showgrid: false,
+        },
+        legend: { orientation: "h", x: 0, y: 1.08 },
+        hovermode: "closest",
+      };
+      Plotly.newPlot("chart", [daily, cumulative], layout, { responsive: true, displaylogo: false });
+    }
+
+    function showErrors(errors) {
+      document.getElementById("errors").innerHTML = errors.length
+        ? "<p><b>Some log lines were skipped:</b></p><ul>" +
+          errors.map((e) => `<li>${e.replace(/</g, "&lt;")}</li>`).join("") + "</ul>"
+        : "";
+    }
+
+    fetch("log.txt", { cache: "no-cache" })
+      .then((r) => {
+        if (!r.ok) throw new Error(`HTTP ${r.status}`);
+        return r.text();
+      })
+      .then((text) => {
+        const { entries, errors } = parseLog(text);
+        showErrors(errors);
+        if (entries.length === 0) {
+          document.getElementById("chart").textContent = "No entries logged yet.";
+          return;
+        }
+        drawChart(dailySeries(entries));
+      })
+      .catch((err) => {
+        document.getElementById("chart").textContent = `Could not load log.txt (${err.message}).`;
+      });
+  </script>
+</body>
+</html>
