@@ -6,3 +6,5 @@
 
 2026-10-24 1h Preparing datasets and thinking about how to improve a loss function for tracking
 2026-10-25 3h Comparing performance of ML models beyond the loss function
+2026-10-26 2h Comparing what information is available for different training datasets
+
