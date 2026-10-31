@@ -8,4 +8,7 @@
 2026-10-25 3h Comparing performance of ML models beyond the loss function
 2026-10-26 2h Comparing what information is available for different training datasets
 2026-10-27 6h Interpreting PCA vs feature vs truth plots
+2026-10-28 0.5h Discussing Aashnet details
+2026-10-29 2h Discussing Aashnet details
+2026-10-30 1h Thinking about attention and context
 
